@@ -9,13 +9,19 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 			.logo-hero {
-				background: white;
-				border-radius: 50%;
-				padding: 2em;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
+    background: white;
+    border-radius: 50%;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;  /* ADD THIS */
+}
+.logo-hero video {
+    width: 100%;      /* ADD THIS */
+    height: 100%;     /* ADD THIS */
+    object-fit: contain;  /* ADD THIS */
+}
 			.logo-hero img {
 				max-width: 100%;
 				height: auto;
@@ -214,4 +220,5 @@
 
 	</body>
 </html>
+
 
