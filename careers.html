@@ -7,173 +7,188 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<!-- Custom styles loaded AFTER main.css to ensure proper text color override -->
 		<style>
-			.job-card {
-				background: white;
-				border-radius: 8px;
-				padding: 2em;
-				margin-bottom: 2em;
-				box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-				transition: transform 0.3s ease, box-shadow 0.3s ease;
-			}
-			
-			.job-card:hover {
-				transform: translateY(-5px);
-				box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-			}
-			
-			.job-card h3 {
-				color: #e44c65;
-				margin-bottom: 0.5em;
-				font-size: 1.5em;
-			}
-			
-			.job-meta {
-				display: flex;
-				gap: 1.5em;
-				margin-bottom: 1em;
-				flex-wrap: wrap;
-			}
-			
-			/* Higher specificity selectors to override external CSS */
-			body .job-card .job-meta span {
-				color: #444 !important;
-				font-size: 0.9em;
-				display: flex;
-				align-items: center;
-				gap: 0.3em;
-			}
-			
-			.job-meta span:before {
-				content: "📍";
-			}
-			
-			.job-meta span:nth-child(2):before {
-				content: "💼";
-			}
-			
-			.job-meta span:nth-child(3):before {
-				content: "💰";
-			}
-			
-			/* Higher specificity selectors to override external CSS */
-			body .job-card .job-description {
-				color: #212121 !important;
-				margin-bottom: 1em;
-				line-height: 1.6;
-				font-size: 0.95em;
-			}
-			
-			body .job-card .job-requirements {
-				margin-bottom: 1.5em;
-			}
-			
-			body .job-card .job-requirements h4 {
-				color: #333 !important; 
-				font-size: 1em;
-				margin-bottom: 0.5em;
-			}
-			
-			body .job-card .job-requirements ul {
-				list-style: none;
-				padding: 0;
-			}
-			
-			body .job-card .job-requirements li {
-				color: #212121 !important;
-				padding-left: 1.5em;
-				position: relative;
-				margin-bottom: 0.5em;
-			}
-			
-			.job-requirements li:before {
-				content: "✓";
-				color: #e44c65;
-				position: absolute;
-				left: 0;
-				font-weight: bold;
-			}
-			
-			.whatsapp-btn {
-				display: inline-block;
-				background: #25D366;
-				color: white !important;
-				padding: 0.8em 2em;
-				border-radius: 50px;
-				text-decoration: none !important;
-				font-weight: bold;
-				transition: all 0.3s ease;
-				border: none;
-				cursor: pointer;
-			}
-			
-			.whatsapp-btn:hover {
-				background: #20BA5A;
-				transform: scale(1.05);
-				box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-			}
-			
-			.whatsapp-btn:before {
-				content: "💬 ";
-			}
-			
-			.page-header {
-				text-align: center;
-				padding: 4em 0 2em 0;
-				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-				color: white;
-				margin-bottom: 3em;
-			}
-			
-			.page-header h1 {
-				font-size: 2.5em;
-				margin-bottom: 0.5em;
-			}
-			
-			.page-header p {
-				font-size: 1.2em;
-				opacity: 0.9;
-			}
-			
-			.jobs-container {
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 0 2em 4em 2em;
-			}
-			
-			.no-match-section {
-				background: #f8f9fa;
-				border-radius: 8px;
-				padding: 3em;
-				text-align: center;
-				margin-top: 3em;
-			}
-			
-			.no-match-section h3 {
-				color: #333;
-				margin-bottom: 1em;
-			}
-			
-			.no-match-section p {
-				color: #666;
-			}
-			
-			@media screen and (max-width: 736px) {
-				.job-card {
-					padding: 1.5em;
-				}
-				
-				.job-meta {
-					flex-direction: column;
-					gap: 0.5em;
-				}
-				
-				.page-header h1 {
-					font-size: 1.8em;
-				}
-			}
-		</style>
+	.job-card {
+		background: white;
+		border-radius: 8px;
+		padding: 2em;
+		margin-bottom: 2em;
+		box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+	
+	.job-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+	}
+	
+	.job-card h3 {
+		color: #e44c65 !important;
+		margin-bottom: 0.5em;
+		font-size: 1.5em;
+	}
+	
+	.job-meta {
+		display: flex;
+		gap: 1.5em;
+		margin-bottom: 1em;
+		flex-wrap: wrap;
+	}
+	
+	/* CRITICAL: Ultra-specific selectors to override everything */
+	html body .jobs-container .job-card .job-meta span,
+	body .job-card .job-meta span {
+		color: #333333 !important;
+		font-size: 0.9em;
+		display: flex;
+		align-items: center;
+		gap: 0.3em;
+	}
+	
+	.job-meta span:before {
+		content: "📍";
+	}
+	
+	.job-meta span:nth-child(2):before {
+		content: "💼";
+	}
+	
+	.job-meta span:nth-child(3):before {
+		content: "💰";
+	}
+	
+	/* CRITICAL: Ultra-specific selectors for descriptions */
+	html body .jobs-container .job-card .job-description,
+	body .job-card .job-description,
+	.jobs-container .job-card .job-description {
+		color: #2c3e50 !important;
+		margin-bottom: 1em;
+		line-height: 1.8;
+		font-size: 1em;
+		font-weight: 400;
+	}
+	
+	html body .jobs-container .job-card .job-requirements,
+	body .job-card .job-requirements {
+		margin-bottom: 1.5em;
+	}
+	
+	html body .jobs-container .job-card .job-requirements h4,
+	body .job-card .job-requirements h4 {
+		color: #2c3e50 !important; 
+		font-size: 1.1em;
+		margin-bottom: 0.5em;
+		font-weight: 600;
+	}
+	
+	html body .jobs-container .job-card .job-requirements ul,
+	body .job-card .job-requirements ul {
+		list-style: none;
+		padding: 0;
+	}
+	
+	html body .jobs-container .job-card .job-requirements li,
+	body .job-card .job-requirements li,
+	.jobs-container .job-card .job-requirements li {
+		color: #34495e !important;
+		padding-left: 1.5em;
+		position: relative;
+		margin-bottom: 0.6em;
+		line-height: 1.6;
+		font-size: 0.95em;
+	}
+	
+	.job-requirements li:before {
+		content: "✓";
+		color: #e44c65;
+		position: absolute;
+		left: 0;
+		font-weight: bold;
+	}
+	
+	.whatsapp-btn {
+		display: inline-block;
+		background: #25D366;
+		color: white !important;
+		padding: 0.8em 2em;
+		border-radius: 50px;
+		text-decoration: none !important;
+		font-weight: bold;
+		transition: all 0.3s ease;
+		border: none;
+		cursor: pointer;
+	}
+	
+	.whatsapp-btn:hover {
+		background: #20BA5A;
+		transform: scale(1.05);
+		box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+	}
+	
+	.whatsapp-btn:before {
+		content: "💬 ";
+	}
+	
+	.page-header {
+		text-align: center;
+		padding: 4em 0 2em 0;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+		margin-bottom: 3em;
+	}
+	
+	.page-header h1 {
+		font-size: 2.5em;
+		margin-bottom: 0.5em;
+		color: white !important;
+	}
+	
+	.page-header p {
+		font-size: 1.2em;
+		opacity: 0.9;
+		color: white !important;
+	}
+	
+	.jobs-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2em 4em 2em;
+	}
+	
+	.no-match-section {
+		background: #f8f9fa;
+		border-radius: 8px;
+		padding: 3em;
+		text-align: center;
+		margin-top: 3em;
+	}
+	
+	.no-match-section h3 {
+		color: #2c3e50 !important;
+		margin-bottom: 1em;
+	}
+	
+	html body .no-match-section p,
+	body .no-match-section p,
+	.no-match-section p {
+		color: #34495e !important;
+	}
+	
+	@media screen and (max-width: 736px) {
+		.job-card {
+			padding: 1.5em;
+		}
+		
+		.job-meta {
+			flex-direction: column;
+			gap: 0.5em;
+		}
+		
+		.page-header h1 {
+			font-size: 1.8em;
+		}
+	}
+</style>
 	</head>
 	<body class="is-preload">
 
