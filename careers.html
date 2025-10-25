@@ -188,6 +188,17 @@
 			font-size: 1.8em;
 		}
 	}
+
+	/* Ultimate override - must be last */
+	.job-requirements li,
+	.job-requirements li *,
+	.job-meta span,
+	.job-meta span *,
+	.job-description,
+	.job-description * {
+		color: #000000 !important;
+		opacity: 1.0 !important;
+	}
 </style>
 	</head>
 	<body class="is-preload">
@@ -383,6 +394,42 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+
+		<script>
+		// Final override - runs after ALL CSS is loaded and computed
+		(function() {
+			function applyDarkColors() {
+				// Target all job requirement list items
+				var listItems = document.querySelectorAll('.job-requirements li, .job-meta span, .job-description, .job-requirements h4');
+				
+				listItems.forEach(function(item) {
+					// Force black color directly on the element
+					item.style.color = '#000000';
+					item.style.opacity = '1';
+					item.style.setProperty('color', '#000000', 'important');
+					item.style.setProperty('opacity', '1', 'important');
+					
+					// Also check for any pseudo-elements or inherited opacity
+					var computedStyle = window.getComputedStyle(item);
+					if (parseFloat(computedStyle.opacity) < 1) {
+						item.style.setProperty('opacity', '1', 'important');
+					}
+				});
+			}
+			
+			// Run multiple times
+			applyDarkColors();
+			setTimeout(applyDarkColors, 50);
+			setTimeout(applyDarkColors, 200);
+			setTimeout(applyDarkColors, 500);
+			
+			// Also run on any DOM changes
+			if (window.MutationObserver) {
+				var observer = new MutationObserver(applyDarkColors);
+				observer.observe(document.body, { childList: true, subtree: true });
+			}
+		})();
+		</script>
 
 	</body>
 </html>
