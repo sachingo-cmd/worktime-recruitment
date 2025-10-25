@@ -36,7 +36,8 @@
 				flex-wrap: wrap;
 			}
 			
-			.job-meta span {
+			/* Higher specificity selectors to override external CSS */
+			body .job-card .job-meta span {
 				color: #444 !important;
 				font-size: 0.9em;
 				display: flex;
@@ -56,29 +57,30 @@
 				content: "💰";
 			}
 			
-			.job-description {
+			/* Higher specificity selectors to override external CSS */
+			body .job-card .job-description {
 				color: #212121 !important;
 				margin-bottom: 1em;
 				line-height: 1.6;
 				font-size: 0.95em;
 			}
 			
-			.job-requirements {
+			body .job-card .job-requirements {
 				margin-bottom: 1.5em;
 			}
 			
-			.job-requirements h4 {
+			body .job-card .job-requirements h4 {
 				color: #333 !important; 
 				font-size: 1em;
 				margin-bottom: 0.5em;
 			}
 			
-			.job-requirements ul {
+			body .job-card .job-requirements ul {
 				list-style: none;
 				padding: 0;
 			}
 			
-			.job-requirements li {
+			body .job-card .job-requirements li {
 				color: #212121 !important;
 				padding-left: 1.5em;
 				position: relative;
