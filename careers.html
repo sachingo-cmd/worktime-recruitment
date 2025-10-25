@@ -395,6 +395,14 @@ html body .job-card .job-requirements li {
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-
+<script>
+window.addEventListener('load', function() {
+    document.querySelectorAll('.job-requirements li').forEach(function(li) {
+        li.removeAttribute('style');
+        li.style.setProperty('color', '#1a1a1a', 'important');
+        li.style.opacity = '1';
+    });
+});
+</script>
 	</body>
 </html>
