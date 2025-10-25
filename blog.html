@@ -1,0 +1,709 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Recruitment Tips & Insights - Worktime Recruitment</title>
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico?v=2">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+			line-height: 1.6;
+			color: #333;
+			background: #f8f9fa;
+		}
+		
+		/* Header Styles */
+		#header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			background: rgba(27, 28, 35, 0.95);
+			box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			z-index: 1000;
+			padding: 2em 3em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		
+		#header h1 {
+			margin: 0;
+		}
+		
+		#header h1 img {
+			height: 50px;
+		}
+		
+		#header a {
+			text-decoration: none;
+		}
+		
+		#header nav ul {
+			list-style: none;
+			display: flex;
+			gap: 2em;
+			align-items: center;
+			margin: 0;
+			padding: 0;
+		}
+		
+		#header nav a {
+			color: white;
+			text-decoration: none;
+			font-weight: 500;
+			font-size: 1.1em;
+			transition: color 0.3s ease;
+		}
+		
+		#header nav a:hover {
+			color: #e44c65;
+		}
+		
+		#header .button.primary {
+			background: #e44c65;
+			color: white !important;
+			padding: 0.8em 2em;
+			font-size: 1.05em;
+			border-radius: 25px;
+			transition: all 0.3s ease;
+		}
+		
+		#header .button.primary:hover {
+			background: #d63850;
+			transform: translateY(-2px);
+		}
+		
+		/* Page Header */
+		.page-header {
+			margin-top: 80px;
+			text-align: center;
+			padding: 5em 2em 3em 2em;
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			color: white;
+		}
+		
+		.page-header h1 {
+			font-size: 3em;
+			margin-bottom: 0.5em;
+			font-weight: 700;
+			color: white;
+		}
+		
+		.page-header p {
+			font-size: 1.3em;
+			opacity: 0.95;
+			color: white;
+			max-width: 700px;
+			margin: 0 auto;
+		}
+		
+		/* Blog Container */
+		.blog-container {
+			max-width: 1200px;
+			margin: 3em auto;
+			padding: 0 2em 4em 2em;
+		}
+		
+		/* Featured Post */
+		.featured-post {
+			background: white;
+			border-radius: 15px;
+			overflow: hidden;
+			margin-bottom: 3em;
+			box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+			transition: all 0.3s ease;
+		}
+		
+		.featured-post:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+		}
+		
+		.featured-post-image {
+			width: 100%;
+			height: 400px;
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			font-size: 4em;
+		}
+		
+		.featured-post-content {
+			padding: 2.5em;
+		}
+		
+		.featured-badge {
+			display: inline-block;
+			background: #e44c65;
+			color: white;
+			padding: 0.4em 1em;
+			border-radius: 20px;
+			font-size: 0.85em;
+			font-weight: 600;
+			margin-bottom: 1em;
+		}
+		
+		.featured-post h2 {
+			color: #2c3e50;
+			font-size: 2.2em;
+			margin-bottom: 0.5em;
+			font-weight: 700;
+			line-height: 1.3;
+		}
+		
+		.post-meta {
+			display: flex;
+			gap: 2em;
+			margin-bottom: 1.5em;
+			flex-wrap: wrap;
+			color: #7f8c8d;
+			font-size: 0.95em;
+		}
+		
+		.post-meta span {
+			display: flex;
+			align-items: center;
+			gap: 0.5em;
+		}
+		
+		.featured-post p {
+			color: #34495e;
+			font-size: 1.15em;
+			line-height: 1.8;
+			margin-bottom: 1.5em;
+		}
+		
+		.read-more {
+			display: inline-block;
+			background: #667eea;
+			color: white;
+			padding: 0.9em 2.5em;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 1em;
+			transition: all 0.3s ease;
+		}
+		
+		.read-more:hover {
+			background: #5568d3;
+			transform: translateX(5px);
+		}
+		
+		/* Blog Grid */
+		.blog-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+			gap: 2em;
+			margin-top: 2em;
+		}
+		
+		/* Blog Card */
+		.blog-card {
+			background: white;
+			border-radius: 12px;
+			overflow: hidden;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+			transition: all 0.3s ease;
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.blog-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+		}
+		
+		.blog-card-image {
+			width: 100%;
+			height: 220px;
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			font-size: 3em;
+		}
+		
+		.blog-card-image.alt1 {
+			background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+		}
+		
+		.blog-card-image.alt2 {
+			background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+		}
+		
+		.blog-card-image.alt3 {
+			background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+		}
+		
+		.blog-card-image.alt4 {
+			background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+		}
+		
+		.blog-card-image.alt5 {
+			background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+		}
+		
+		.blog-card-content {
+			padding: 2em;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.category-tag {
+			display: inline-block;
+			background: #e8f4f8;
+			color: #667eea;
+			padding: 0.3em 0.9em;
+			border-radius: 15px;
+			font-size: 0.8em;
+			font-weight: 600;
+			margin-bottom: 1em;
+			width: fit-content;
+		}
+		
+		.blog-card h3 {
+			color: #2c3e50;
+			font-size: 1.4em;
+			margin-bottom: 0.7em;
+			font-weight: 700;
+			line-height: 1.4;
+		}
+		
+		.blog-card p {
+			color: #34495e;
+			line-height: 1.7;
+			font-size: 0.95em;
+			margin-bottom: 1.5em;
+			flex: 1;
+		}
+		
+		.blog-card .post-meta {
+			margin-bottom: 1em;
+			font-size: 0.85em;
+		}
+		
+		.blog-card-footer {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding-top: 1em;
+			border-top: 1px solid #ecf0f1;
+		}
+		
+		.read-time {
+			color: #95a5a6;
+			font-size: 0.9em;
+			display: flex;
+			align-items: center;
+			gap: 0.5em;
+		}
+		
+		.card-read-more {
+			color: #667eea;
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 0.95em;
+			display: flex;
+			align-items: center;
+			gap: 0.5em;
+			transition: all 0.3s ease;
+		}
+		
+		.card-read-more:hover {
+			gap: 0.8em;
+			color: #5568d3;
+		}
+		
+		/* Newsletter Section */
+		.newsletter-section {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			border-radius: 15px;
+			padding: 3em;
+			text-align: center;
+			margin-top: 4em;
+			color: white;
+		}
+		
+		.newsletter-section h3 {
+			font-size: 2em;
+			margin-bottom: 0.5em;
+			color: white;
+		}
+		
+		.newsletter-section p {
+			font-size: 1.1em;
+			margin-bottom: 2em;
+			opacity: 0.95;
+		}
+		
+		.newsletter-form {
+			display: flex;
+			gap: 1em;
+			max-width: 600px;
+			margin: 0 auto;
+		}
+		
+		.newsletter-form input {
+			flex: 1;
+			padding: 1em 1.5em;
+			border: none;
+			border-radius: 50px;
+			font-size: 1em;
+		}
+		
+		.newsletter-form button {
+			background: #e44c65;
+			color: white;
+			border: none;
+			padding: 1em 2.5em;
+			border-radius: 50px;
+			font-weight: 600;
+			font-size: 1em;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+		
+		.newsletter-form button:hover {
+			background: #d63850;
+			transform: scale(1.05);
+		}
+		
+		/* Footer */
+		#footer {
+			background: #2c3e50;
+			color: white;
+			padding: 3em 2em;
+			text-align: center;
+			margin-top: 4em;
+		}
+		
+		#footer .icons {
+			list-style: none;
+			display: flex;
+			justify-content: center;
+			gap: 1.5em;
+			margin-bottom: 1.5em;
+		}
+		
+		#footer .icons a {
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+			background: rgba(255,255,255,0.1);
+			border-radius: 50%;
+			color: white;
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.3em;
+			transition: all 0.3s ease;
+		}
+		
+		#footer .icons a:hover {
+			background: #e44c65;
+			transform: translateY(-3px);
+		}
+		
+		#footer .copyright {
+			list-style: none;
+			color: rgba(255,255,255,0.6);
+			font-size: 0.9em;
+		}
+		
+		#footer .copyright li {
+			display: inline;
+			margin: 0 0.5em;
+		}
+		
+		#footer .copyright a {
+			color: rgba(255,255,255,0.8);
+			text-decoration: none;
+		}
+		
+		#footer .copyright a:hover {
+			color: white;
+		}
+		
+		/* Responsive Design */
+		@media screen and (max-width: 980px) {
+			#header {
+				padding: 1em 2em;
+			}
+			
+			#header nav ul {
+				gap: 1em;
+			}
+			
+			.blog-grid {
+				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+				gap: 1.5em;
+			}
+		}
+		
+		@media screen and (max-width: 736px) {
+			#header {
+				padding: 0.5em 0.8em;
+			}
+			
+			#header h1 img {
+				height: 25px !important;
+			}
+			
+			#header nav ul {
+				gap: 0.5em;
+				font-size: 0.75em;
+			}
+			
+			#header .button.primary {
+				padding: 0.4em 0.8em;
+				font-size: 0.75em;
+			}
+			
+			.page-header {
+				padding: 3em 1.5em 2em 1.5em;
+			}
+			
+			.page-header h1 {
+				font-size: 2em;
+			}
+			
+			.page-header p {
+				font-size: 1.1em;
+			}
+			
+			.blog-container {
+				padding: 0 1em 2em 1em;
+			}
+			
+			.featured-post-image {
+				height: 250px;
+				font-size: 2.5em;
+			}
+			
+			.featured-post-content {
+				padding: 1.5em;
+			}
+			
+			.featured-post h2 {
+				font-size: 1.6em;
+			}
+			
+			.blog-grid {
+				grid-template-columns: 1fr;
+			}
+			
+			.newsletter-form {
+				flex-direction: column;
+			}
+			
+			.newsletter-section {
+				padding: 2em 1.5em;
+			}
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<h1 id="logo"><a href="index.html"><img src="images/Worktimelogo.png" alt="Worktime Recruitment" style="height: 40px;"></a></h1>
+		<nav id="nav">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="careers.html">Jobs</a></li>
+				<li><a href="blog.html">Blog</a></li>
+				<li><a href="index.html#five">Contact</a></li>
+				<li><a href="mailto:sachin@worktimehr.in" class="button primary">Get In Touch</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Page Header -->
+	<div class="page-header">
+		<h1>Recruitment Insights & Tips</h1>
+		<p>Expert advice to help you navigate your career journey and hiring process</p>
+	</div>
+
+	<!-- Blog Container -->
+	<div class="blog-container">
+
+		<!-- Featured Post -->
+		<article class="featured-post">
+			<div class="featured-post-image">
+				<i class="fas fa-users"></i>
+			</div>
+			<div class="featured-post-content">
+				<span class="featured-badge">⭐ Featured</span>
+				<h2>10 Essential Skills Every Recruiter Should Master in 2025</h2>
+				<div class="post-meta">
+					<span><i class="fas fa-calendar"></i> October 20, 2025</span>
+					<span><i class="fas fa-user"></i> Sachin Kumar</span>
+					<span><i class="fas fa-clock"></i> 8 min read</span>
+				</div>
+				<p>The recruitment landscape is evolving rapidly with AI, remote work, and changing candidate expectations. Discover the top skills that will set you apart as a recruiter in 2025, from mastering LinkedIn Boolean searches to understanding data-driven hiring metrics. Learn how to build meaningful relationships with candidates while leveraging technology to streamline your process.</p>
+				<a href="#" class="read-more">Read Full Article →</a>
+			</div>
+		</article>
+
+		<!-- Blog Grid -->
+		<div class="blog-grid">
+
+			<!-- Blog Card 1 -->
+			<article class="blog-card">
+				<div class="blog-card-image alt1">
+					<i class="fas fa-file-alt"></i>
+				</div>
+				<div class="blog-card-content">
+					<span class="category-tag">Career Tips</span>
+					<h3>How to Write a Resume That Gets Noticed</h3>
+					<div class="post-meta">
+						<span><i class="fas fa-calendar"></i> Oct 18, 2025</span>
+					</div>
+					<p>Your resume is your first impression. Learn the proven strategies to create a compelling resume that catches recruiters' attention and lands interviews.</p>
+					<div class="blog-card-footer">
+						<span class="read-time"><i class="fas fa-clock"></i> 5 min</span>
+						<a href="#" class="card-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Blog Card 2 -->
+			<article class="blog-card">
+				<div class="blog-card-image alt2">
+					<i class="fas fa-handshake"></i>
+				</div>
+				<div class="blog-card-content">
+					<span class="category-tag">Interview Prep</span>
+					<h3>Mastering the Virtual Interview: A Complete Guide</h3>
+					<div class="post-meta">
+						<span><i class="fas fa-calendar"></i> Oct 15, 2025</span>
+					</div>
+					<p>Virtual interviews are here to stay. Discover expert tips on preparation, technical setup, body language, and making a lasting impression through the screen.</p>
+					<div class="blog-card-footer">
+						<span class="read-time"><i class="fas fa-clock"></i> 7 min</span>
+						<a href="#" class="card-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Blog Card 3 -->
+			<article class="blog-card">
+				<div class="blog-card-image alt3">
+					<i class="fas fa-chart-line"></i>
+				</div>
+				<div class="blog-card-content">
+					<span class="category-tag">Industry Trends</span>
+					<h3>The Future of EdTech Recruitment in India</h3>
+					<div class="post-meta">
+						<span><i class="fas fa-calendar"></i> Oct 12, 2025</span>
+					</div>
+					<p>The EdTech sector is booming in India. Explore the emerging roles, salary trends, and skills that will be in high demand in the education technology space.</p>
+					<div class="blog-card-footer">
+						<span class="read-time"><i class="fas fa-clock"></i> 6 min</span>
+						<a href="#" class="card-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Blog Card 4 -->
+			<article class="blog-card">
+				<div class="blog-card-image alt4">
+					<i class="fas fa-brain"></i>
+				</div>
+				<div class="blog-card-content">
+					<span class="category-tag">Soft Skills</span>
+					<h3>Emotional Intelligence: The Hidden Job Requirement</h3>
+					<div class="post-meta">
+						<span><i class="fas fa-calendar"></i> Oct 10, 2025</span>
+					</div>
+					<p>Technical skills get you the interview, but emotional intelligence gets you the job. Learn how to demonstrate and develop this crucial skill set.</p>
+					<div class="blog-card-footer">
+						<span class="read-time"><i class="fas fa-clock"></i> 5 min</span>
+						<a href="#" class="card-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Blog Card 5 -->
+			<article class="blog-card">
+				<div class="blog-card-image alt5">
+					<i class="fas fa-money-bill-wave"></i>
+				</div>
+				<div class="blog-card-content">
+					<span class="category-tag">Negotiation</span>
+					<h3>Salary Negotiation Strategies That Actually Work</h3>
+					<div class="post-meta">
+						<span><i class="fas fa-calendar"></i> Oct 8, 2025</span>
+					</div>
+					<p>Don't leave money on the table. Master the art of salary negotiation with proven tactics, scripts, and timing strategies that get results.</p>
+					<div class="blog-card-footer">
+						<span class="read-time"><i class="fas fa-clock"></i> 8 min</span>
+						<a href="#" class="card-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Blog Card 6 -->
+			<article class="blog-card">
+				<div class="blog-card-image">
+					<i class="fas fa-rocket"></i>
+				</div>
+				<div class="blog-card-content">
+					<span class="category-tag">Career Growth</span>
+					<h3>From Junior to Senior: Accelerating Your Career Path</h3>
+					<div class="post-meta">
+						<span><i class="fas fa-calendar"></i> Oct 5, 2025</span>
+					</div>
+					<p>Ready to level up? Discover the strategies, skills, and mindset shifts needed to fast-track your progression from junior to senior positions.</p>
+					<div class="blog-card-footer">
+						<span class="read-time"><i class="fas fa-clock"></i> 6 min</span>
+						<a href="#" class="card-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+					</div>
+				</div>
+			</article>
+
+		</div>
+
+		<!-- Newsletter Section -->
+		<div class="newsletter-section">
+			<h3>📬 Get Weekly Career Insights</h3>
+			<p>Subscribe to our newsletter for the latest recruitment tips, job market trends, and career advice delivered to your inbox.</p>
+			<form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! We will send career tips to your inbox.');">
+				<input type="email" placeholder="Enter your email address" required>
+				<button type="submit">Subscribe</button>
+			</form>
+		</div>
+
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<ul class="icons">
+			<li><a href="https://www.linkedin.com/company/worktime-hr-services/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+			<li><a href="https://www.instagram.com/worktime_hr/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+			<li><a href="https://www.facebook.com/profile.php?id=100089557998487" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+			<li><a href="mailto:sachin@worktimehr.in"><i class="fas fa-envelope"></i></a></li>
+		</ul>
+		<ul class="copyright">
+			<li>&copy; Worktime Recruitment. All rights reserved.</li>
+			<li>Built with dedication</li>
+		</ul>
+	</footer>
+
+</body>
+</html>
