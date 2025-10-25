@@ -77,14 +77,27 @@ min-height: 40em !important;
 }
 @media screen and (max-width: 736px) {
     .spotlight .image img {
-        transition: opacity 0.6s ease, transform 0.6s ease;
-        opacity: 0.95;
+        animation: fadeInUp 0.8s ease-out;
+    }
+    .spotlight .content {
+        animation: fadeInUp 1s ease-out;
+    }
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    #two .image img {
+        animation-delay: 0.2s;
     }
     
-    .spotlight:active .image img,
-    .spotlight:focus-within .image img {
-        opacity: 1;
-        transform: scale(1.02);
+    #three .image img {
+        animation-delay: 0.2s;
     }
 }
 </style>
@@ -282,6 +295,7 @@ min-height: 40em !important;
 
 	</body>
 </html>
+
 
 
 
