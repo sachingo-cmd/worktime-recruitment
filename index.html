@@ -75,6 +75,14 @@ min-height: 40em !important;
     border-radius: 50%;
     font-size: 1.2em;
 }
+@media screen and (max-width: 736px) {
+    .spotlight .image.fit.main {
+        transition: transform 0.5s ease-out;
+    }
+    body.is-mobile .spotlight .image {
+        transform: none !important;
+    }
+}
 </style>
 		</style>
 	</head>
@@ -270,6 +278,7 @@ min-height: 40em !important;
 
 	</body>
 </html>
+
 
 
 
